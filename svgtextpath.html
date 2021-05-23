@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG</title>
+    <link rel='stylesheet' href="svgtextpath.css">
+</head>
+<body>
+    <section>
+        <h1 class="anim">LOOK AT ME GO</h1>
+    </section>
+    <section>
+        <img src="./image.jpg" alt="image">
+        <h1 class="anim">BEHOLD MY CRAZZZY FLOW</h1>
+    </section>
+    <section>
+        <h1 class="anim">UP SO HIGH . DOWN SO LOW</h1>
+    </section>
+    <svg viewBox="0 0 500 500">
+        <style>
+            .text {
+                text-transform: uppercase;
+                font-weight: bold;
+                fill: #e6e6e6;
+            }
+        </style>
+        <path fill="transparent" id="our-text" d="M1 1V402H414V1H15" />
+        <text y="40" font-size="30" font-family="Montserrat, Arial">
+            <textpath id="text-path" class="text" href="#our-text">
+                Bro see mah mad flow, bitch you slow.
+            </textpath>
+        </text>
+    </svg>
+    <script>
+        const path = document.querySelector('#text-path');
+        const updatePath = (offset) => {
+            path.setAttribute('startOffset', offset);
+        }
+        function onScroll() {
+            requestAnimationFrame(function() {
+                updatePath(window.scrollY * 1.5);
+            });
+        }
+        window.addEventListener('scroll', onScroll);
+        const titles = document.querySelectorAll('.anim');
+        observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                // console.log(e)
+                if (e.isIntersecting === true) {
+                    e.target.classList.add('animate');
+                } else {
+                    e.target.classList.remove('animate');
+
+                }
+            })
+        });
+        titles.forEach(title => {
+            observer.observe(title)
+        })
+    </script>
+</body>
+</html>
