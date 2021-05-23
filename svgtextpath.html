@@ -18,21 +18,16 @@
     <section>
         <h1 class="anim">UP SO HIGH . DOWN SO LOW</h1>
     </section>
-    <svg viewBox="0 0 500 500">
-        <style>
-            .text {
-                text-transform: uppercase;
-                font-weight: bold;
-                fill: #e6e6e6;
-            }
-        </style>
-        <path fill="transparent" id="our-text" d="M1 1V402H414V1H15" />
-        <text y="40" font-size="30" font-family="Montserrat, Arial">
-            <textpath id="text-path" class="text" href="#our-text">
-                Bro see mah mad flow, bitch you slow.
-            </textpath>
-        </text>
-    </svg>
+    <div class="bg">
+        <svg width="463" height="462" viewBox="0 0 463 462" fill="none">
+            <path id="our-text" d="M1 1V461H462V1H18" stroke="none" />
+            <text y="0" font-size="30" font-family="Montserrat, Arial">
+                <textpath id="text-path" class="text" href="#our-text">
+                    Bro see mah mad flow, bitch you slow.
+                </textpath>
+            </text>
+        </svg>
+    </div>
     <script>
         const path = document.querySelector('#text-path');
         const updatePath = (offset) => {
